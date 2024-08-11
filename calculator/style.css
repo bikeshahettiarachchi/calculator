@@ -1,0 +1,274 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.Calculator {
+    background-color: #efefef;
+    width: 100%;
+    max-width: 375px;
+    min-height: 640px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 1rem;
+    overflow: hidden;
+
+}
+
+.display {
+    min-height: 200px;
+    padding: 1.5rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    color: rgb(0, 0, 0);
+    text-align: right;
+    flex: 1 1 0%;
+    font-weight: bold;
+
+}
+
+.input {
+    font-size: 2.25rem;
+    margin-bottom: 0.5rem;
+    color: #333333d6;
+}
+
+.output {
+    font-size: 3.50rem;
+    font-weight: 700;
+    width: 100%;
+    max-width: 100%;
+    overflow: auto;
+}
+
+
+
+.keys {
+    background-color: #efefef;
+    padding: 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: 0.25rem;
+    grid-gap: 1rem;
+
+}
+
+.key {
+    position: relative;
+    cursor: pointer;
+    display: block;
+    height: 0;
+    padding-top: 100%;
+    background-color: rgb(224, 223, 223);
+    border-radius: 1rem;
+    transition: 0.2s;
+    user-select: none;
+}
+
+.key span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+    font-weight: 700;
+    color: #000000;
+}
+
+.keys .key:hover {
+    box-shadow: inset 0px 0px 0px rgba(0, 0, 0, 0.2);
+}
+
+.keys .key.operator {
+    background-color: rgb(67, 67, 67);
+}
+
+.keys .key.operator span {
+    color: rgb(255, 255, 255);
+
+}
+
+.keys .key.action {
+    background-color: #bbb9b9;
+}
+
+.keys .key.action span {
+    color: rgb(50, 50, 50);
+}
+
+.keys .key.backspace {
+    background-color: rgb(224, 223, 223);
+}
+
+.switch {
+    margin-left: 28px;
+    font-size: 28px;
+}
+
+.keys2 {
+    align-items: center;
+    justify-content: center;
+    background-color: #efefef;
+    padding: 1.5rem;
+    display: block;
+    gap: 2.54rem;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 100px;
+}
+
+.secondkey {
+
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #ffffff !important;
+    height: 50px;
+    width: 50px;
+    margin-left: 14px;
+}
+
+.keyWrap {
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    height: 60px;
+    width: 60px;
+    background-color: rgb(67, 67, 67);
+    border-radius: 0.2rem;
+    padding: 10px;
+
+}
+
+.dropdown-toggle {
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    height: 60px;
+    width: 60px;
+    background-color: rgb(67, 67, 67) !important;
+    border-radius: 0.2rem;
+    padding: 10px;
+}
+
+.input-fill {
+    padding: 1.5rem;
+    font-weight: bold;
+    font-size: 30px;
+    border-color: rgb(200, 200, 200);
+    height: 45px;
+    width: 300px;
+    border-radius: 0.4rem;
+    background-color: rgb(200, 200, 200);
+    text-align: right;
+}
+
+.form-check-input {
+    background-color: rgb(67, 67, 67) !important;
+    border: none !important;
+
+}
+
+.backdrop {
+    position: fixed;
+    z-index: 999;
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+    top: 0;
+    left: 0;
+    opacity: 0.5;
+    transition: 1s;
+}
+
+.model {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    z-index: 9999;
+
+
+}
+
+.backdrop.hide,
+.model.hide {
+    display: none;
+}
+
+.backdrop.hiding {
+    opacity: 0;
+}
+
+.model.hiding {
+    animation: modelHide 1500ms forwards;
+
+}
+
+@keyframes modelHide {
+    0% {
+
+        top: 50%;
+        opacity: 1;
+
+    }
+
+    30% {
+
+        top: 60%;
+
+        
+    }
+
+    100% {
+
+        top: 0%;
+        opacity: 0;
+
+    }
+
+}
+
+.model.showing{
+    animation: modelShow  1000ms forwards;
+
+
+}
+
+@keyframes modelShow {
+
+    0% {
+
+        top: 0%;
+        opacity: 0;
+
+    }
+
+    70% {
+
+        top: 60%;
+
+        
+    }
+
+    100% {
+
+        top: 50%;
+        opacity: 1;
+
+    }
+
+}
